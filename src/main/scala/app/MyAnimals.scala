@@ -70,14 +70,14 @@ class Meowth(coins : Int, teamRocket : Boolean) extends Cat() {
 
   val rocket: String = {
     if (teamRocket) {
-      "I am part of Team Rocket"
+      "I am"
     }
     else {
 
-      "I am not part of Team Rocket"
+      "I am not"
     }
   }
-  override def speak(): String = s"That's right! I have $coins coins. $rocket."
+  override def speak(): String = s"That's right! I have $coins coins and $rocket part of Team Rocket."
 }
 
 /*
