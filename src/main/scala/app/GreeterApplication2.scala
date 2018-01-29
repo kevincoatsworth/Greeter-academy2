@@ -43,7 +43,23 @@ final class CashISASavingsAccount(accountNumber: String, balance: Double) extend
 
 }
 
-class Person(name : String, age : Int) {
+class Person(name : String, age : Int, private val bankAccount: BankAccount) {
+
+  def this(name : String, age : Int) = this(
+    name = name,
+    age = age,
+    bankAccount = new SavingsAccount("123", 0.00))
+
+  def this (name : String) = this(
+    name = name,
+    age = 0,
+    bankAccount = new SavingsAccount("1234", 0.00))
+
+  def this(firstName : String, lastName : String) = this(
+    name = s"$firstName $lastName",
+    age = 0,
+    bankAccount = new SavingsAccount("153434", 0.00)
+  )
 
   private val years : String = if(age == 1) "year"
   else "years"
@@ -58,7 +74,7 @@ class Person(name : String, age : Int) {
 
     else {
 
-      s"Hello $name you are $age $years old."
+      s"Hello $name you are $age $years old. \n You have ${bankAccount.balance} in your account"
 
     }
   }
@@ -90,6 +106,10 @@ object GreeterApplication2 extends App {
   val age = Prompt.ask("What is your age? ")
 
   val p = new Person(name, age.toInt)
+
+  val child = new Person("David")
+
+  val p2 = new Person("Adam", "Conder")
 
   //println(p.speak())
 

@@ -1,7 +1,5 @@
 package app
 
-import java.util.Optional
-
 class Point (val x: Int, val y: Int) {
 
   override def toString: String = s"Current position: $x, $y"
