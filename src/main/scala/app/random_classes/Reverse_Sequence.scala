@@ -9,6 +9,7 @@ object Reverse_Sequence extends App {
     val x = (1 to Number).toList.reverse
     x
   }
+
   println("Please enter a number: ")
   val userNum = StdIn.readInt()
   println(makeList(userNum))
