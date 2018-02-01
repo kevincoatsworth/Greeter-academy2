@@ -19,3 +19,4 @@ val ints2 = List(1,3,5,6,8,2,1)
 def plus(l : Int, r : Int) = l + r
 val total2 = ints1.foldLeft(0)(plus)
 total2
+
