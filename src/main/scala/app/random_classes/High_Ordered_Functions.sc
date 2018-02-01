@@ -13,7 +13,11 @@ sumAndMulitplyBy(numbers, timesThree)
 sumAndMulitplyBy(numbers, timesTwoThenTimesThree)
 
 
+numbers.map(timesTwo).map(timesThree)
+numbers.map(timesTwo andThen timesThree)
+numbers.map(timesThree compose timesTwo)
+
 //All the same:-
-//list.map(timesTwo).map(timesThree)
-//list.map(timesTwo andThen timesThree)
-//list.map(timesThree compose timesTwo)
+//'list name'.map(timesTwo).map(timesThree)
+//'list name'.map(timesTwo andThen timesThree)
+//'list name'.map(timesThree compose timesTwo)
