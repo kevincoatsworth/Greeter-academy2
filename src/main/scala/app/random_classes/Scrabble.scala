@@ -4,7 +4,7 @@ import scala.io.StdIn
 
 class ScrabbleCalc (word : String) {
 
-  val word1 = word.toList
+  private val word1 = word.toList
 
   val letters : Map[Char, Int] = Map(
     'a' -> 1,
@@ -35,11 +35,11 @@ class ScrabbleCalc (word : String) {
     'z' -> 10,
   )
 
-  val totalScore = word1.foldLeft(0)( _ + letters(_))
-  println("Your word is a valid.")
+  private val totalScore = word1.foldLeft(0)( _ + letters(_))
+  println(s"Your word is valid and is currently worth $totalScore points.")
 
-  val doubleScore = StdIn.readLine("Is your word a Double Score? (yes/no): ").toLowerCase
-  val tripleScore = StdIn.readLine("Is your word a Triple Score? (yes/no): ").toLowerCase
+  private val doubleScore = StdIn.readLine("Is your word a Double Score? (yes/no): ").toLowerCase
+  private val tripleScore = StdIn.readLine("Is your word a Triple Score? (yes/no): ").toLowerCase
 
   if(doubleScore == "yes") {
 
@@ -64,7 +64,7 @@ object ScrabbleGame extends App {
 
   if (dict.contains(userWord)){
 
-    val word : ScrabbleCalc = new ScrabbleCalc(userWord)
+    new ScrabbleCalc(userWord)
 
   }
 
