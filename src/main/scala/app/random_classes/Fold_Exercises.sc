@@ -65,5 +65,13 @@ val fibs2 = 1::1::2::3::5::Nil
 
 fibs2.tail.tail.tail.tail.head
 
+fibs2.distinct
+
+val fibs3 = 2::4::6::8::10::Nil
+
+fibs3.tail.tail.tail.tail.head
+
+
+
 
 
