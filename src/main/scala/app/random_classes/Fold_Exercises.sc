@@ -28,6 +28,23 @@ intMap(List(1,2,3), x => x + 2)
 
 intMap(List(1,2,3), x => x * 5)
 
+
+
+
+def intMap2(list: List[Int], f: Int => Int): List[Int] = {
+  list match {
+    case Nil => list
+    case head :: tail => f(head) :: intMap2(tail, f)
+  }
+}
+
+val list1 = List(1,2,3)
+val double = (x: Int) => x * 2
+
+list.map(double)
+intMap(list1, double)
+intMap2(list1, double)
+
 //val list1 = List(1,2,3)
 
 val four = 4
