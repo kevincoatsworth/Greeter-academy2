@@ -3,6 +3,8 @@ package app.controllers
 import app.models.{CashISASavingsAccount, Person, SavingsAccount}
 import app.views.Prompt
 
+import scala.util.Try
+
 
 
 object GreeterApplication2 extends App {
@@ -36,24 +38,35 @@ object GreeterApplication2 extends App {
   */
 
   def prompt() : (String, Int) = {
-
     val name : String = Prompt.ask("What is your name? ")
 
-    def getAge() : Int = {
+    def getAge(): Int = {
 
-      try{
+      //One way to handle exception:-
+      //import scala.util.control.Exception._
+      //val a : Option[Int] = nonFatalCatch.opt(Prompt.ask("How old are you? ").toInt)
+      //a.fold(getAge())(a => a)
 
-        val age : Int = Prompt.ask("What is your age? ").toInt
-        age
-        } catch {
+      val age = Try(Prompt.ask("How old are you? ").toInt)
+      age.fold(e => {
 
-        case _: NumberFormatException => getAge()
-        }
+        println(e.getMessage)
+        getAge()
+
+      }, a => a)
 
     }
 
+    /* try and catch example of above.
+    def getAge() : Int = {
+      try{
+        val age : Int = Prompt.ask("What is your age? ").toInt
+        age
+        } catch {
+        case _: NumberFormatException => getAge()
+        }
+    }*/
     (name, getAge())
-
   }
 
   val (name, age) = prompt()
