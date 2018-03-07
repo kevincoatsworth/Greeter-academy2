@@ -46,3 +46,8 @@ t._4
 
 
 
+val	t1	:	(Int,	String,	Int)	=	(1,	"hello", 2)
+t1.productIterator.foreach(x	=>	println(x))
+
+
+
